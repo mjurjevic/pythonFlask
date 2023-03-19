@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prikazi sve</title>
+</head>
+<body>
+    {% if 'broj_indeksa' in session %}
+
+    <a href="/logout">Logout</a>
+    {% else %}
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    {% endif %}
+
+    <h1>Prikazi mi sve</h1>
+
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>ID</th>
+            <th>Broj indeksa</th>
+            <th>Ime i prezime</th>
+            <th>Godina rodjenja</th>
+            <th>Password</th>
+            <th>Prosek</th>
+            <th>Broj polozenih ispita</th>
+            {% if 'broj_indeksa' in session %}
+            <th>update</th>
+            <th>delete</th>
+            {% endif %}
+        </tr>
+        {% for p in podaci %}
+        <tr>
+            <td>{{p[0]}}</td>
+            <td>{{p[1]}}</td>
+            <td>{{p[2]}}</td>
+            <td>{{p[3]}}</td>
+            <td>{{p[4]}}</td>
+            <td>{{p[5]}}</td>
+            <td>{{p[6]}}</td>
+            {% if 'broj_indeksa' in session %}
+
+            <td>
+                <a href='/update/{{p[1]}}'>update</a>
+            </td>
+            <td>
+                <form action="/delete/{{p[1]}}" method="POST">
+                    <input type="submit" value="delete">
+                </form>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>  
+</body>
+</html>

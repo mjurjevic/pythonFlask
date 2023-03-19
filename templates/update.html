@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update </title>
+</head>
+<body>
+
+    <h1>Update</h1>
+
+    <form action="/update/{{korisnik[1]}}" method="POST">
+
+        <p>
+        
+            <label for="broj_indeksa">Broj indeksa</label>
+            <input type="text" name="broj_indeksa" value="{{korisnik[1]}}" readonly >
+            <span>{{index_greska}}</span>
+
+        </p>
+
+        <p>
+        
+            <label for="ime_prezime">Ime i prezime</label>
+            <input type="text" name="ime_prezime" value="{{korisnik[2]}}" >
+
+        </p>
+
+        <p>
+        
+            <label for="godina">Godina rodjenja</label>
+            <input type="text" name="godina" value="{{korisnik[3]}}">
+
+        </p>
+
+        <p>
+        
+            <label for="password">Password</label>
+            <input type="password" name="password" >
+
+        </p>
+
+
+        <p>
+        
+            <label for="confirm">Confirm</label>
+            <input type="password" name="confirm" >
+            <span>{{conf_greska}}</span>
+
+        </p>
+
+        <p>
+        
+            <label for="prosek">Prosek</label>
+            <input type="text" name="prosek" value="{{korisnik[5]}}" >
+            <span>{{prosek_greska}}</span>
+
+        </p>
+
+        <p>
+        
+            <label for="broj_polozenih">Broj polozenih ispita</label>
+            <input type="number" name="broj_polozenih" value="{{korisnik[6]}}">
+            <span>{{broj_polozenih_greska}}</span>
+
+        </p>
+
+
+        <input type="submit" value="Registruj se">
+        
+    </form>
+    
+</body>
+</html>
